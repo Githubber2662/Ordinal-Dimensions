@@ -669,30 +669,30 @@ function loop(unadjusted, off = 0) {
   for (var i = 9; i > -1; i--) {
     multiThis = EN(1);
     if ((i == 0 || i == 9) && game.infUpgradeHave[0] == 1) {
-      multiThis = EN.mul(multiThis, 3);
+      multiThis = EN.mul(multiThis, 4);
     } else if ((i == 1 || i == 8) && game.infUpgradeHave[1] == 1) {
-      multiThis = EN.mul(multiThis, 3);
+      multiThis = EN.mul(multiThis, 4);
     } else if ((i == 2 || i == 7) && game.infUpgradeHave[2] == 1) {
-      multiThis = EN.mul(multiThis, 3);
+      multiThis = EN.mul(multiThis, 4);
     } else if ((i == 3 || i == 6) && game.infUpgradeHave[3] == 1) {
-      multiThis = EN.mul(multiThis, 3);
+      multiThis = EN.mul(multiThis, 4);
     } else if ((i == 4 || i == 5) && game.infUpgradeHave[4] == 1) {
-      multiThis = EN.mul(multiThis, 3);
+      multiThis = EN.mul(multiThis, 4);
     }
     if (i == 0 && game.infUpgradeHave[15] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(game.infTime/30)*10+1);
+      multiThis = EN.mul(multiThis, Math.sqrt(game.infTime/20)*15+1);
     }
     if (i == 1 && game.infUpgradeHave[16] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(Math.sqrt(game.markCount))*8+1);
+      multiThis = EN.mul(multiThis, Math.sqrt(Math.sqrt(game.markCount))*12+1);
     }
     if (i == 2 && game.infUpgradeHave[17] == 1) {
-      multiThis = EN.mul(multiThis, EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 100), 0.75), 1), 1));
+      multiThis = EN.mul(multiThis, EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 10), 0.8), 1), 1));
     }
     if (i == 3 && game.infUpgradeHave[18] == 1) {
-      multiThis = EN.mul(multiThis, EN.add(EN.pow(game.autoIncrHave[9], 0.75), 1));
+      multiThis = EN.mul(multiThis, EN.add(EN.pow(game.autoIncrHave[9], 0.8), 1));
     }
     if (i == 4 && game.infUpgradeHave[19] == 1) {
-      multiThis = EN.mul(multiThis, EN.add(EN.pow(EN.logBase((EN.add(game.OP, 1)), 1000), 0.75), 1));
+      multiThis = EN.mul(multiThis, EN.add(EN.pow(EN.logBase((EN.add(game.OP, 1)), 10), 0.8), 1));
     }
     if (i == 5 && game.infUpgradeHave[20] == 1) {
       var tempVar = 0;
