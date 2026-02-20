@@ -1547,13 +1547,13 @@ function changeInt() {
 
 function changeOrdLengthLess() {
   let newms = prompt(
-    "Please type in the new max length. Type in 0 for no maximum (max 30)"
+    "Please type in the new max length. Type in 0 for no maximum (maximum 48)"
   );
   if (!isNaN(Number(newms))) {
-    if (newms <= 0) {
-      newms = 0;
-    }
-    game.maxOrdLength.less = Math.floor(Number(newms));
+	  if(newms >= 48 || newms <= 0) {
+    game.maxOrdLength.less = 48;
+  }
+ game.maxOrdLength.less = Math.floor(Number(newms));
   }
 }
 
