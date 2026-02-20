@@ -1550,10 +1550,10 @@ function changeOrdLengthLess() {
     "Please type in the new max length. Type in 0 for no maximum (max 30)"
   );
   if (!isNaN(Number(newms))) {
-    if (newms >= 30 || Math.round(newms) <= 0) {
-      newms = 30;
+    if (newms <= 0) {
+      newms = 0;
     }
-    game.maxOrdLength.less = Math.round(Number(newms));
+    game.maxOrdLength.less = Math.floor(Number(newms));
   }
 }
 
@@ -1744,21 +1744,21 @@ function displayOrd(ord,base=3,over=0,trim=0,large=0,multoff=0,colour=0) {
   while (ord.gte(base) && (trim < game.maxOrdLength.less || game.maxOrdLength.less == 0) && !largeOrd)
   {
     let tempvar = ord.add(0.1).logBase(base).floor() // if leading term of ordinal is (ω^c)a, this is c
-    if (ordColor == "no") ordColor=HSL(tempvar*8)
+    if (ordColor == "no") ordColor=HSL(tempvar*7.5)
     let tempvar2 = EN.pow(base,tempvar) // and this is ω^c
     let tempvar3 = EN.floor((EN.add(ord, 0.1)).div(tempvar2)) // and this is a
     let ott = ord.sub(EN.mul(tempvar2, tempvar3)) // the ordinal value of the rest of the ordinal
-    let otto = ott.add(over).eq(0) || ord.gt(EN.tetrate(base, 3)) // has the ordinal ended?
+    let otto = ott.add(over).eq(0) || ord.gt(EN.tetrate(base, base)) // has the ordinal ended?
     tempvar4 = "ω" +
       (tempvar.eq(1) ? "" : (game.buchholz==2?"^(":"<sup>") + displayOrd(tempvar,base,0) + (game.buchholz==2?")":"</sup>")) +
       (tempvar3.eq(1) ? "" : (game.buchholz==2&&tempvar.gt(1.5)?"×":"") + tempvar3.toString()) +
       (otto || trim == (game.maxOrdLength.less-1) ? (otto ? "": "+...") : "+" );
 
-    dispString += (colour==1?"<span style='color:" + HSL(tempvar*8) + ";text-shadow: 6px 6px 6px " + HSL(tempvar * 8) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
+    dispString += (colour==1?"<span style='color:" + HSL(tempvar*7.5) + ";text-shadow: 6px 6px 6px " + HSL(tempvar * 8) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
     ord = ott;
     trim++;
 
-    if (ord.gt(EN.tetrate(base, 3))) {largeOrd = true}
+    if (ord.gt(EN.tetrate(base, base))) {largeOrd = true}
   }
 
   if ((ord.lt(base) && !ord.eq(0) && trim != game.maxOrdLength.less) || originalOrd.eq(0)) {
