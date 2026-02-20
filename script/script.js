@@ -680,10 +680,10 @@ function loop(unadjusted, off = 0) {
       multiThis = EN.mul(multiThis, 4);
     }
     if (i == 0 && game.infUpgradeHave[15] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(game.infTime/20)*15+1);
+      multiThis = EN.mul(multiThis, Math.sqrt(game.infTime/15)*20+1);
     }
     if (i == 1 && game.infUpgradeHave[16] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(Math.sqrt(game.markCount))*12+1);
+      multiThis = EN.mul(multiThis, Math.sqrt(Math.sqrt(game.markCount))*15+1);
     }
     if (i == 2 && game.infUpgradeHave[17] == 1) {
       multiThis = EN.mul(multiThis, EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 10), 0.8), 1), 1));
