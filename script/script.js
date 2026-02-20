@@ -1754,7 +1754,7 @@ function displayOrd(ord,base=3,over=0,trim=0,large=0,multoff=0,colour=0) {
       (tempvar3.eq(1) ? "" : (game.buchholz==2&&tempvar.gt(1.5)?"×":"") + tempvar3.toString()) +
       (otto || trim == (game.maxOrdLength.less-1) ? (otto ? "": "+...") : "+" );
 
-    dispString += (colour==1?"<span style='color:" + HSL(tempvar*7.5) + ";text-shadow: 6px 6px 6px " + HSL(tempvar * 8) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
+    dispString += (colour==1?"<span style='color:" + HSL(tempvar*7.5) + ";text-shadow: 6px 6px 6px " + HSL(tempvar * 7.5) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
     ord = ott;
     trim++;
 
