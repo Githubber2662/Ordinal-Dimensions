@@ -195,7 +195,6 @@ function setAllIncrCost() {
 function setIncrCost(num) {
     game.autoIncrCost[num] = EN.mul(autoIncrCostBase[num], EN.pow(EN.pow(game.base, num+1), EN.mul(game.autoIncrBought[num], costScale)));
   }
-}
 function challengesBuyEffect(num) {
   if (game.markupChallengeEntered >= 3) {
     game.c3Effect = 0;
