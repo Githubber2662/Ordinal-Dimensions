@@ -189,7 +189,7 @@ function buyBulkIncr(num, bulk) {
       }
     }
     // Incrementer post-300 level
-    if (EN.gte(EN.mul(game.autoIncrBought[num], costScale), 299)) {
+    if (EN.gte(EN.mul(game.autoIncrBought[num], costScale), 299) && EN.gte(bulk, 1)) {
       thisBulk = EN(0);
       logOrdOver = EN.sub(logOrd, EN.add(EN.logBase(autoIncrCostBase[num], game.base), EN.mul(298, (num+1))));
       thisBulk = EN.add(EN.sub(EN.floor(EN.div(EN.sub(EN.pow(EN.add(EN.mul(EN.div(logOrdOver, num+1), 8), 1), 0.5), -1), 2)), EN.sub(EN.mul(game.autoIncrBought[num], costScale), 298)), 1);
@@ -591,12 +591,7 @@ function calcMultPerBuy() {
 
 function increment(manmade=0) {
   if (manmade==0 || game.manualClicksLeft >= 0.5 || game.chal8 == 0) {
-    if (manmade==1 && game.chal8 == 1) game.manualClicksLeft -= 1
-    if (EN.eq(EN.mod(game.ord, game.base), game.base-1)) {
-      game.over += 1
-    } else {
       game.ord = EN.add(game.ord, 1);
-    }
     clickCoolDown=2
   }
   if (manmade==1) render()
