@@ -189,7 +189,7 @@ function buyBulkIncr(num, bulk) {
       }
     }
     // Incrementer post-300 level
-    if (EN.gte(EN.mul(game.autoIncrBought[num], costScale), 299) && EN.gte(bulk, 1)) {
+    if (EN.gte(EN.mul(game.autoIncrBought[num], costScale), 299)) {
       thisBulk = EN(0);
       logOrdOver = EN.sub(logOrd, EN.add(EN.logBase(autoIncrCostBase[num], game.base), EN.mul(298, (num+1))));
       thisBulk = EN.add(EN.sub(EN.floor(EN.div(EN.sub(EN.pow(EN.add(EN.mul(EN.div(logOrdOver, num+1), 8), 1), 0.5), -1), 2)), EN.sub(EN.mul(game.autoIncrBought[num], costScale), 298)), 1);
