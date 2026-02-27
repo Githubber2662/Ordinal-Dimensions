@@ -192,12 +192,12 @@ function buyBulkIncr(num, bulk) {
     if (EN.gte(EN.mul(game.autoIncrBought[num], costScale), 299) && EN.gte(bulk, 1)) {
       thisBulk = EN(0);
       logOrdOver = EN.sub(logOrd, EN.add(EN.logBase(autoIncrCostBase[num], game.base), EN.mul(298, (num+1))));
-      thisBulk = EN.add(EN.sub(EN.floor(EN.div(EN.sub(EN.pow(EN.add(EN.mul(EN.div(logOrdOver, num+1), 8), 1), 0.5), -1), 2)), EN.sub(EN.mul(game.autoIncrBought[num], costScale), 298)), 1);
+      thisBulk = thisBulk = EN.add(EN.sub(EN.floor(EN.div(EN.sub(logOrd, EN.logBase(autoIncrCostBase[num], game.base)), num+1)), EN.mul(game.autoIncrBought[num], costScale)), 1);
       if (EN.gte(thisBulk, 1)) {
         if (EN.gt(thisBulk, bulk)) {
           thisBulk = EN(bulk);
         }
-        game.ord = EN.sub(game.ord, EN.pow(EN.pow(game.base, num+1), EN.add(299, EN.div(EN.mul(EN.sub(EN.mul(game.autoIncrBought[num], costScale), 299), EN.sub(EN.mul(game.autoIncrBought[num], costScale), 298)), 2))));
+        game.ord = EN.sub(game.ord, EN.pow(EN.pow(game.base, num+1), EN.add(EN.mul(game.autoIncrBought[num], costScale), thisBulk)));
         game.autoIncrBought[num] = EN.add(game.autoIncrBought[num], thisBulk);
         game.autoIncrHave[num] = EN.add(game.autoIncrHave[num], thisBulk);
         setIncrCost(num);
