@@ -75,7 +75,7 @@ function factorShift() {
 }
 
 function factorBoost(manmade = 0) {
-  if (game.OP >= V(game.factorBoosts + 3, 1) && game.challenge === 0) {
+  if (game.OP >= EN.mul(EN("1e600"), EN.pow(EN("1e100"), game.factorBoosts) && game.challenge === 0) {
     if (manmade === 1 && game.fbConfirm === 1) {
       if (!confirm(`Are you sure you want to do a Factor Boost?${
         (game.upgrades.includes(8)
