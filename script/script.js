@@ -1735,7 +1735,8 @@ function displayOrd(ord,base=3,over=0,trim=0,large=0,multoff=0,colour=0) {
   while (ord.gte(base) && (trim < game.maxOrdLength.less || game.maxOrdLength.less == 0) && !largeOrd)
   {
     let tempvar = ord.add(0.1).logBase(base).floor() // if leading term of ordinal is (ω^c)a, this is c
-    if (ordColor == "no" && tempvar*7.5 < 1.79769e308) ordColor=HSL(tempvar*7.5)
+    if (ordColor == "no" && tempvar*7.5 <= 1.79769e308) ordColor=HSL(tempvar*7.5)
+	if (ordColor == "no" && tempvar*7.5 > 1.79769e308) ordColor=HSL(0)
     let tempvar2 = EN.pow(base,tempvar) // and this is ω^c
     let tempvar3 = EN.floor((EN.add(ord, 0.1)).div(tempvar2)) // and this is a
     let ott = ord.sub(EN.mul(tempvar2, tempvar3)) // the ordinal value of the rest of the ordinal
