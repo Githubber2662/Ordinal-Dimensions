@@ -555,13 +555,13 @@ function challengeEffects() {
 
 function buyDynamicUp(num) {
   if (num == 0) {
-    var costThis = EN.mul(1e11, EN.pow(10, EN.pow(game.dynamicLevel, 1.8)));
+    var costThis = EN.mul(1e10, EN.pow(10, EN.pow(game.dynamicLevel, 1.8)));
     if (EN.gte(game.OP, costThis)) {
       game.OP = EN.sub(game.OP, costThis);
       game.dynamicLevel = EN.add(game.dynamicLevel, 1);
     }
   } else if (num == 1) {
-    var costThis = EN.mul(1e12, EN.pow(10, EN.pow(game.dynamicLevel2, 2.2)));
+    var costThis = EN.mul(1e10, EN.pow(10, EN.pow(game.dynamicLevel2, 1.8)));
     if (EN.gte(game.OP, costThis)) {
       game.OP = EN.sub(game.OP, costThis);
       game.dynamicLevel2 = EN.add(game.dynamicLevel2, 1);
