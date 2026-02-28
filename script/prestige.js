@@ -30,10 +30,10 @@ function infinity(manmade = 0) {
 function factorShift() {
   if (game.OP >= getFSCost(game.factorShifts) && !((game.challenge === 5 || game.challenge === 7) && game.factorShifts >= 2)) {
     if (game.factorShifts < 6.5) {
-      game.ord = 0;
+      game.ord = EN(0);
       game.over = 0;
       game.canInf = false;
-      game.OP = 0;
+      game.OP = EN(0);
       game.succAuto = 0;
       game.limAuto = 0;
       game.autoLoop = { succ: 0, lim: 0 };
@@ -53,7 +53,7 @@ function factorShift() {
       game.ord = 0;
       game.over = 0;
       game.canInf = false;
-      game.OP = 0;
+      game.OP = EN(0);
       game.succAuto = 0;
       game.limAuto = 0;
       game.autoLoop = { succ: 0, lim: 0 };
