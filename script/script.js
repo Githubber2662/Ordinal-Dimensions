@@ -1735,7 +1735,7 @@ function displayOrd(ord,base=3,over=0,trim=0,large=0,multoff=0,colour=0) {
   while (ord.gte(base) && (trim < game.maxOrdLength.less || game.maxOrdLength.less == 0) && !largeOrd)
   {
     let tempvar = ord.add(0.1).logBase(base).floor() // if leading term of ordinal is (ω^c)a, this is c
-    if (ordColor == "no") ordColor=HSL(tempvar*7.5)
+    if (ordColor == "no" && tempvar*7.5 < 1.79769e308) ordColor=HSL(tempvar*7.5)
     let tempvar2 = EN.pow(base,tempvar) // and this is ω^c
     let tempvar3 = EN.floor((EN.add(ord, 0.1)).div(tempvar2)) // and this is a
     let ott = ord.sub(EN.mul(tempvar2, tempvar3)) // the ordinal value of the rest of the ordinal
@@ -1745,7 +1745,7 @@ function displayOrd(ord,base=3,over=0,trim=0,large=0,multoff=0,colour=0) {
       (tempvar3.eq(1) ? "" : (game.buchholz==2&&tempvar.gt(1.5)?"×":"") + tempvar3.toString()) +
       (otto || trim == (game.maxOrdLength.less-1) ? (otto ? "": "+...") : "+" );
 
-    dispString += (colour==1?"<span style='color:" + HSL(tempvar*7.5) + ";text-shadow: 6px 6px 6px " + HSL(tempvar * 7.5) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
+    dispString += (colour==1?"<span style='color:" + (tepmvar*7.5 > 1.79769e308 ? HSL(tempvar*7.5) : HSL(0)) + ";text-shadow: 6px 6px 6px " + (tepmvar*7.5 > 1.79769e308 ? HSL(tempvar*7.5) : HSL(0)) + ", 1px 0 1px black, -1px 0 1px black, 0 1px 1px black, 0 -1px 1px black;'>" + tempvar4 + "</span>":tempvar4);
     ord = ott;
     trim++;
 
