@@ -289,10 +289,10 @@ function infUpgrade(num) {
       game.autoIncrHave[7] = EN.add(game.autoIncrHave[7], 3);
     }
     if (num == 13) {
-      game.autoIncrHave[8] = EN.add(game.autoIncrHave[8], 3);
+      game.autoIncrHave[8] = EN.add(game.autoIncrHave[8], 2);
     }
     if (num == 14) {
-      game.autoIncrHave[9] = EN.add(game.autoIncrHave[9], 2);
+      game.autoIncrHave[9] = EN.add(game.autoIncrHave[9], 1);
     }
     randerInfUpgrade();
   }
@@ -541,12 +541,12 @@ function challengeEffects() {
     get('challInfo').style.display = 'block';
     if (game.markupChallengeEntered >= 5) {
       if (game.markupChallengeEntered >= 7) {
-        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(2) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers<br>C7 effect -> ' + game.c7Effect.toFixed(2) + 'x to all Incrementers';
+        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers<br>C7 effect -> ' + game.c7Effect.toFixed(2) + 'x to all Incrementers';
       } else {
-        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(2) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers';
+        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers';
       }
     } else {
-      get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(2) + 'x to all Incrementers';
+      get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers';
     }
   } else {
     get('challInfo').style.display = 'none';
@@ -660,21 +660,21 @@ function loop(unadjusted, off = 0) {
   for (var i = 9; i > -1; i--) {
     multiThis = EN(1);
     if ((i == 0 || i == 9) && game.infUpgradeHave[0] == 1) {
-      multiThis = EN.mul(multiThis, 4);
+      multiThis = EN.mul(multiThis, 5);
     } else if ((i == 1 || i == 8) && game.infUpgradeHave[1] == 1) {
-      multiThis = EN.mul(multiThis, 4);
+      multiThis = EN.mul(multiThis, 5);
     } else if ((i == 2 || i == 7) && game.infUpgradeHave[2] == 1) {
-      multiThis = EN.mul(multiThis, 4);
+      multiThis = EN.mul(multiThis, 5);
     } else if ((i == 3 || i == 6) && game.infUpgradeHave[3] == 1) {
-      multiThis = EN.mul(multiThis, 4);
+      multiThis = EN.mul(multiThis, 5);
     } else if ((i == 4 || i == 5) && game.infUpgradeHave[4] == 1) {
-      multiThis = EN.mul(multiThis, 4);
+      multiThis = EN.mul(multiThis, 5);
     }
     if (i == 0 && game.infUpgradeHave[15] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(game.infTime/15)*20+1);
+      multiThis = EN.mul(multiThis, game.infTime+1);
     }
     if (i == 1 && game.infUpgradeHave[16] == 1) {
-      multiThis = EN.mul(multiThis, Math.sqrt(Math.sqrt(game.markCount))*15+1);
+      multiThis = EN.mul(multiThis, Math.sqrt(game.markCount*15)+1);
     }
     if (i == 2 && game.infUpgradeHave[17] == 1) {
       multiThis = EN.mul(multiThis, EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 10), 0.8), 1), 1));
@@ -683,7 +683,7 @@ function loop(unadjusted, off = 0) {
       multiThis = EN.mul(multiThis, EN.add(EN.pow(game.autoIncrHave[9], 0.8), 1));
     }
     if (i == 4 && game.infUpgradeHave[19] == 1) {
-      multiThis = EN.mul(multiThis, EN.add(EN.pow(EN.logBase((EN.add(game.OP, 1)), 10), 0.8), 1));
+      multiThis = EN.mul(multiThis, EN.add(EN.logBase((EN.add(game.OP, 1)), 10), 1));
     }
     if (i == 5 && game.infUpgradeHave[20] == 1) {
       var tempVar = 0;
