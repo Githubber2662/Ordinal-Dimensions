@@ -541,9 +541,9 @@ function challengeEffects() {
     get('challInfo').style.display = 'block';
     if (game.markupChallengeEntered >= 5) {
       if (game.markupChallengeEntered >= 7) {
-        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers<br>C7 effect -> ' + game.c7Effect.toFixed(2) + 'x to all Incrementers';
+        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(4) + 'x to all Incrementers<br>C7 effect -> ' + game.c7Effect.toFixed(4) + 'x to all Incrementers';
       } else {
-        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(2) + 'x to all Incrementers';
+        get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers<br>C5 effect -> ' + game.c5Effect.toFixed(4) + 'x to all Incrementers';
       }
     } else {
       get('challInfo').innerHTML = 'C3 effect -> ' + game.c3Effect.toFixed(4) + 'x to all Incrementers';
@@ -964,9 +964,9 @@ function render() {
   let infUpEff = [];
   infUpEff.push(Math.sqrt(game.infTime/30)*10+1);
   infUpEff.push(Math.sqrt(Math.sqrt(game.markCount))*8+1);
-  infUpEff.push(EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 100), 0.75), 1), 1));
+  infUpEff.push(EN.max(EN.add(EN.pow(EN.logBase((EN.add(game.ord, 1)), 10), 1), 1), 1));
   infUpEff.push(EN.add(EN.pow(game.autoIncrHave[9], 0.75), 1));
-  infUpEff.push(EN.add(EN.pow(EN.logBase((EN.add(game.OP, 1)), 1000), 0.75), 1));
+  infUpEff.push(EN.add(EN.pow(EN.logBase((EN.add(game.OP, 1)), 10), 1), 1));
   var tempVar = 0;
   for (var j = 0; j < game.markupChallenge.length; j++) {
     tempVar += game.markupChallenge[j];
