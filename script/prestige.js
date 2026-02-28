@@ -49,7 +49,7 @@ function factorShift() {
         game.factors.push(0);
       }
     } else if (game.boostUnlock === 0) {
-      game.dynamic = 1;
+      game.dynamic = EN(1);
       game.ord = 0;
       game.over = 0;
       game.canInf = false;
@@ -75,7 +75,7 @@ function factorShift() {
 }
 
 function factorBoost(manmade = 0) {
-  if (game.OP >= EN.mul(EN("1e600"), EN.pow(EN("1e100"), game.factorBoosts)) && game.challenge === 0) {
+  if (EN.gte(game.OP, EN.mul(EN("1e600"), EN.pow(EN("1e100"), game.factorBoosts))) && game.challenge === 0) {
     if (manmade === 1 && game.fbConfirm === 1) {
       if (!confirm(`Are you sure you want to do a Factor Boost?${
         (game.upgrades.includes(8)
